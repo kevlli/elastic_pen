@@ -11,7 +11,7 @@ x = 2.0 # make this variable with a slider
 v = 0.0
 a = 0.0
 α = 0.0
-θ = pi/2
+θ = pi/4
 
 onoff = False
 
@@ -90,10 +90,28 @@ def pause():
     onoff = not onoff
     if onoff: 
         rs.text = "Pause"
-        ball.clear_trail()
     else: rs.text = "Resume"
 
 rs = button(bind = pause, text = "Run")
+
+def reset():
+    global ω
+    global v
+    global a
+    global α
+    global x
+    global θ
+    ω=0.0 # angular velocity
+    v = 0.0
+    a = 0.0
+    α = 0.0
+    θ = ts.value
+    x = xs.value
+    ball.clear_trail()
+    phcurve.delete()
+    phcurve2.delete()
+    
+rr = button(bind = reset, text = "Reset")
 
 
 # while loop constantly checks if run button is clicked. If so, simulation plays. Calculates movement based on Lagrange Equations.        
