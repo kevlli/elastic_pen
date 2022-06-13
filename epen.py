@@ -77,8 +77,7 @@ xs_caption = wtext(text = '<b>initial displacement</b> = '+'{:1.2f}'.format(xs.v
 
 #creates spring constant slider
 def kshift(s):
-    global k 
-    k = s.value
+    spring.stiffness = s.value
     ks_caption.text = '<b>spring constant</b> = '+'{:1.2f}'.format(spring.stiffness)+' N/m\n\n'
     
 ks = slider(bind = kshift, min = 1, max = 100, value = 10.0)
